@@ -110,10 +110,17 @@ using namespace std;
             print_in_binary(res);
     }
 
+    struct Student{
+        char name[17];
+        uint16_t year;
+        float average;
+        uint8_t gender:1;
+        uint8_t courses;
+        Student* starosta;};
 
 int main()
 {
-    assert(nibble_to_hex(0x0) == '0');
+    /*assert(nibble_to_hex(0x0) == '0');
     assert(nibble_to_hex(0x1) == '1');
     assert(nibble_to_hex(0x2) == '2');
     assert(nibble_to_hex(0x3) == '3');
@@ -142,5 +149,23 @@ int main()
     print_in_hex(&u32, sizeof(u32));
     cout << '\n';
     print_in_binary(15);
-    calc(1025,'&',127);
+    calc(1025,'&',127);*/
+    Student students[3]={
+        {"Sasha", 18, 2.55, 1, 1, &students[1]},
+        {"Olya", 18, 6, 0, 1, nullptr},
+        {"Lera", 18, 4, 0, 1, &students[1]},
+    };
+
+        cout<< "Address of students"<<'\n'
+        <<&students;
+        cout<< "\nSize of students"<<'\n'
+        <<sizeof(students)<<'\n';
+        cout<< "Address of student[0]"<<'\n'
+        <<&students[0];
+        cout<< "\nSize of student[0]"<<'\n'
+        <<sizeof(students[0])<<'\n';
+        cout<< "Address of student[2]"<<'\n'
+        <<&students[2];
+        cout<< "\nSize of student[2]"<<'\n'
+        <<sizeof(students[2])<<'\n';
 }
